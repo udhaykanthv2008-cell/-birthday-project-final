@@ -44,8 +44,15 @@ heart.addEventListener("click", () => {
             clearInterval(timer);
 
             countdown.style.display = "none";
+
 music.currentTime = 0;
-music.play().catch(() => {});
+
+const playMusic = () => {
+    music.play().catch(err => console.log(err));
+};
+
+document.addEventListener("click", playMusic, { once: true });
+document.addEventListener("touchstart", playMusic, { once: true });
 
 birthdayTitle.style.display = "block";
 birthdayTitle.classList.add("fade-in");
